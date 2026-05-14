@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Dismantly Scan</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 760px; margin: 40px auto; padding: 0 20px; color: #1a1d21; line-height: 1.6; }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  h2 { font-size: 18px; margin-top: 32px; color: #2c3038; }
+  .meta { color: #6b7280; font-size: 14px; margin-bottom: 24px; }
+  code { background: #f4f4f5; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  a { color: #2563eb; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="meta">Dismantly Scan — Chrome Extension · Last updated: May 14, 2026</p>
+
+<p>This Privacy Policy describes what data the <strong>Dismantly Scan</strong>
+Chrome Extension (the &ldquo;Extension&rdquo;) collects, how it is used, where
+it is stored, and the choices you have. The Extension is published by
+<strong>Serhii Hetmanskyi</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;).
+For any questions, contact:
+<a href="mailto:sergdjdolphinua@gmail.com">sergdjdolphinua@gmail.com</a>.</p>
+
+<h2>1. What the Extension does</h2>
+<p>The Extension is a productivity tool for warehouse workers using
+<a href="https://app.dismantly.ai">app.dismantly.ai</a>. It reads QR codes
+and barcodes, opens the matching part page, and automates user-selected
+workflows (View, Add Images, Work Order, Delete). It only operates while
+the user is interacting with <code>app.dismantly.ai</code>.</p>
+
+<h2>2. Data we collect</h2>
+<p>The Extension collects the following categories of data, exclusively
+to provide the features the user has enabled:</p>
+<ul>
+  <li><strong>Personally identifiable information</strong> — the
+  user's name and email address as exposed by the user's own
+  <code>app.dismantly.ai</code> session (Amazon Cognito user attributes).
+  Used to attribute photo sessions to the correct photographer in the
+  in-extension dashboard.</li>
+
+  <li><strong>Authentication information</strong> — the JWT token of the
+  user's active <code>app.dismantly.ai</code> session is copied from the
+  page's <code>localStorage</code> into <code>chrome.storage.local</code>.
+  It is used solely to authenticate API calls the Extension makes to
+  <code>api.dismantly.ai</code> on the user's behalf.</li>
+
+  <li><strong>User activity</strong> — a log of photo sessions
+  (<code>photoLog</code>): part ID, number of photos uploaded/deleted,
+  timestamps, and bonus calculations. Used for the local productivity
+  dashboard and optional payroll reporting.</li>
+
+  <li><strong>Website content (metadata)</strong> — values read from
+  <code>app.dismantly.ai</code> pages: <code>part_id</code>, part
+  <code>tag</code>, <code>Reference</code> number, first photo URL,
+  sold-out and deleted flags. Used to fill in the local log and to
+  power Work Order printing.</li>
+</ul>
+
+<p>The Extension does <strong>not</strong> collect health data, financial
+or payment information, personal communications, location, browsing
+history outside of <code>app.dismantly.ai</code>, or any data from other
+websites.</p>
+
+<h2>3. Where data is stored</h2>
+<ul>
+  <li><strong>Locally on your device</strong> — preferences, photoLog, and
+  the auth token are kept in Chrome's <code>chrome.storage.local</code> and
+  <code>chrome.storage.sync</code>. They never leave the device unless an
+  optional sync feature (below) is explicitly enabled.</li>
+
+  <li><strong>api.dismantly.ai</strong> — when the user triggers a sync,
+  the Extension calls the user's own Dismantly account API to refresh
+  part metadata. This is the same backend the user is already authenticated
+  with by using app.dismantly.ai.</li>
+
+  <li><strong>Google Sheets (optional, admin-configured)</strong> — if an
+  administrator configures the Google Sheets sync, photoLog records are
+  sent via a Google Apps Script web app to a Google Sheet that the
+  administrator owns. We do not host or receive this data; it goes
+  directly to the administrator's own Google account.</li>
+</ul>
+
+<h2>4. What we do NOT do</h2>
+<ul>
+  <li>We do not sell or transfer user data to third parties, outside of
+  the approved use cases described above.</li>
+  <li>We do not use or transfer user data for purposes that are unrelated
+  to the Extension's single purpose.</li>
+  <li>We do not use or transfer user data to determine creditworthiness
+  or for lending purposes.</li>
+  <li>We do not include any third-party analytics, ad networks, or
+  trackers in the Extension.</li>
+  <li>We do not load remote code at runtime. All scripts are bundled
+  in the published extension package.</li>
+</ul>
+
+<h2>5. Permissions and why they are needed</h2>
+<ul>
+  <li><code>tabs</code> — open the part page after a scan, focus the popup
+  window, and close tabs after Add Images or Delete completes.</li>
+  <li><code>storage</code>, <code>unlimitedStorage</code> — save user
+  preferences and the historical photoLog locally.</li>
+  <li><code>clipboardWrite</code> — copy the Reference number to the
+  clipboard in Work Order mode.</li>
+  <li><code>alarms</code> — retry failed Google Sheets sync attempts in
+  the background.</li>
+  <li>Host permissions on <code>app.dismantly.ai</code>,
+  <code>api.dismantly.ai</code>, <code>script.google.com</code>,
+  <code>script.googleusercontent.com</code> — the only origins the
+  Extension communicates with.</li>
+</ul>
+
+<h2>6. Data retention and deletion</h2>
+<p>All locally stored data remains on the user's device until the user
+uninstalls the Extension or clears its storage from
+<code>chrome://extensions</code>. Uninstalling the Extension removes the
+local photoLog and all preferences from that browser profile. If the
+Google Sheets sync was used, deletion of historical records in the
+spreadsheet must be performed by the administrator who owns the sheet.</p>
+
+<h2>7. Children</h2>
+<p>The Extension is a workplace productivity tool and is not directed
+to children under 13.</p>
+
+<h2>8. Changes to this policy</h2>
+<p>We may update this Privacy Policy from time to time. The
+&ldquo;Last updated&rdquo; date at the top of this page reflects the most
+recent revision. Significant changes will also be announced in the
+Chrome Web Store listing.</p>
+
+<h2>9. Contact</h2>
+<p>Questions, requests, or concerns regarding this policy or your data:
+<a href="mailto:sergdjdolphinua@gmail.com">sergdjdolphinua@gmail.com</a>.</p>
+
+</body>
+</html>
